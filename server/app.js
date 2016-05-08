@@ -54,7 +54,9 @@ app.get('/doadores/:id', function(req, res) {
 });
 
 app.post('/doadores', function(req, res) {
-    doadores.push(req.body);
+    var doador = req.body;
+    doador.id = doadores[doadores.length - 1].id + 1;
+    doadores.push(doador);
     res.json(true);
 });
 
