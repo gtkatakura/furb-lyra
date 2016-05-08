@@ -1,0 +1,23 @@
+<div class="table-responsive col-md-12">
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>Tipo Sanguíneo</th>
+                <th>Fator Rh</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="receptor in receptores | filter:filtro:'name'">
+                <td>{{receptor.nomeCompleto}}</td>
+                <td>{{receptor.tipoSanguineo}}</td>
+                <td>{{receptor.fatorRh ? 'Positivo' : 'Negativo'}}</td>
+                <td>
+                    <a class="btn btn-warning btn-xs" href="#/receptores/{{receptor.id}}/editar">Editar</a>
+                    <button class="btn btn-danger btn-xs" ng-click="excluir(receptor)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
