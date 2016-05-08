@@ -1,0 +1,28 @@
+{
+  "name": "furb-lyra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtkatakura/furb-lyra.git"
+  },
+  "author": "Gabriel Takashi Katakura",
+  "contributors": [
+    "Alesson Ricardo Bernardo",
+    "Ivan Manoel da Silva Filho"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtkatakura/furb-lyra/issues"
+  },
+  "homepage": "https://github.com/gtkatakura/furb-lyra#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
+    "express": "^4.13.4"
+  }
+}
