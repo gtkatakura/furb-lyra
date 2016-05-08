@@ -1,0 +1,72 @@
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+
+app.listen(process.env.PORT || 3412);
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use(bodyParser.json());
+
+app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
+
+var doadores = [
+    {
+        id: 1,
+        nomeCompleto: 'Gabriel Takashi Katakura',
+        tipoSanguineo: 'B',
+        fatorRh: true,
+        rg: '128310248',
+        cpf: '54746095663'
+    },
+    {
+        id: 2,
+        nomeCompleto: 'Alesson Ricardo Bernardo',
+        tipoSanguineo: 'O',
+        fatorRh: false,
+        rg: '128310248',
+        cfp: '90888490640'
+    },
+    {
+        id: 3,
+        nomeCompleto: 'Ivan Manoel da Silva Filho',
+        tipoSanguineo: 'A',
+        fatorRh: true,
+        rg: '128310248',
+        cpf: '93138168060'
+    }
+];
+
+app.get('/doadores', function(req, res) {
+    res.json(doadores);
+});
+
+app.get('/doadores/:id', function(req, res) {
+    var doador = doadores.find(el => el.id == req.params.id);
+    res.json(doador);
+});
+
+app.post('/doadores', function(req, res) {
+    doadores.push(req.body);
+    res.json(true);
+});
+
+app.put('/doadores/:id', function(req, res) {
+    var doador = req.body;
+    var doadorAtual = doadores.find(el => el.id == doador.id);
+    Object.assign(doadorAtual, doador);
+    res.json(true);
+});
+
+app.delete('/doadores/:id', function(req, res) {
+    var index = doadores.indexOf(req.params.id);
+    doadores.splice(index, 1);
+    res.json(true);
+});

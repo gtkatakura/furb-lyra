@@ -1,27 +1,17 @@
-angular.module('lyra').controller('doadorListCtrl', function($scope) {
-    $scope.doadores = [
-        {
-            id: 1,
-            nomeCompleto: 'Gabriel Takashi Katakura',
-            tipoSanguineo: 'B',
-            fatorRh: true
-        },
-        {
-            id: 2,
-            nomeCompleto: 'Alesson Ricardo Bernardo',
-            tipoSanguineo: 'O',
-            fatorRh: false
-        },
-        {
-            id: 3,
-            nomeCompleto: 'Ivan Manoel da Silva Filho',
-            tipoSanguineo: 'A',
-            fatorRh: true
-        }
-    ];
-    
+angular.module('lyra').controller('doadorListCtrl', function($scope, doadorApi) {
+    $scope.doadores = [];
+
     $scope.excluir = function(contato) {
-        var index = $scope.doadores.indexOf(contato);
-        $scope.doadores.splice(index, 1);
+        doadorApi.remove(contato).success(function() {
+            carregarDoadores();
+        });
     };
+
+    var carregarDoadores = function() {
+        doadorApi.all().success(function(doadores) {
+            $scope.doadores = doadores;
+        });
+    };
+    
+    carregarDoadores();
 });

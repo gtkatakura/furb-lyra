@@ -1,0 +1,77 @@
+<form name="doadorForm">
+    <h3 class="page-header">Doador</h3>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Nome Completo</label>
+            <input class="form-control" type="text" name="nomeCompleto" ng-model="doador.nomeCompleto" ng-required="true" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>RG</label>
+            <input class="form-control" type="text" name="rg" ng-model="doador.rg" ng-required="true" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>CPF</label>
+            <input class="form-control" type="text" name="cpf" placeholder="000.000.000-00" ng-model="doador.cpf" ng-required="true" ui-br-cpf-mask="true" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label>Tipo Sanguíneo</label>
+            <select class="form-control" name="tipoSanguineo" ng-model="doador.tipoSanguineo" ng-options="tipoSanguineo for tipoSanguineo in tiposSanguineos" ng-required="true">
+                <option value="">Selecione uma opção</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="exampleInputEmail1">Fator Rh</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="fatorRh" value="0" ng-model="doador.fatorRh" ng-value="false" /> Negativo
+                </label>
+
+                <label>
+                    <input type="radio" name="fatorRh" value="1" ng-model="doador.fatorRh" ng-value="true" /> Positivo
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    
+    <div class="alert alert-danger" ng-if="doadorForm.$invalid && doadorForm.$dirty">
+
+        <label ng-show="doadorForm.nomeCompleto.$invalid">
+            Nome Completo é uma informação obrigatória.
+        </label>
+
+        <label ng-show="doadorForm.rg.$invalid">
+            RG é uma informação obrigatória.
+        </label>
+
+        <label ng-show="doadorForm.cpf.$invalid">
+            O CPF informado é inválido.
+        </label>
+
+        <label ng-show="doadorForm.tipoSanguineo.$invalid">
+            Tipo Sanguíneo é uma informação obrigatória.
+        </label>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" ng-click="update(doador)" ng-disabled="doadorForm.$invalid">Atualizar</button>
+            <a href="#/doadores" class="btn btn-default">Cancelar</a>
+        </div>
+    </div>
+</form>
