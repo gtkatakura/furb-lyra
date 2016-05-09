@@ -10,9 +10,9 @@
         </thead>
         <tbody>
             <tr ng-repeat="doador in doadores | filter:filtro:'name'">
-                <td>{{doador.nomeCompleto}}</td>
-                <td>{{doador.tipoSanguineo}}</td>
-                <td>{{doador.fatorRh ? 'Positivo' : 'Negativo'}}</td>
+                <td>{{doador.paciente.nomeCompleto}}</td>
+                <td>{{doador.paciente.tipoSanguineo}}</td>
+                <td>{{doador.paciente.fatorRh ? 'Positivo' : 'Negativo'}}</td>
                 <td>
                     <a class="btn btn-warning btn-xs" href="#/doadores/{{doador.id}}/editar">Editar</a>
                     <button class="btn btn-danger btn-xs" ng-click="excluir(doador)">Excluir</button>

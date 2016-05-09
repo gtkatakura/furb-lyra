@@ -3,28 +3,28 @@
 <div class="row">
     <div class="form-group col-md-4">
         <label>Nome Completo</label>
-        <input class="form-control" type="text" name="nomeCompleto" ng-model="doador.nomeCompleto" ng-required="true" />
+        <input class="form-control" type="text" name="nomeCompleto" ng-model="doador.paciente.nomeCompleto" ng-required="true" />
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-md-4">
         <label>RG</label>
-        <input class="form-control" type="text" name="rg" ng-model="doador.rg" ng-required="true" />
+        <input class="form-control" type="text" name="rg" ng-model="doador.paciente.rg" ng-required="true" />
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-md-4">
         <label>CPF</label>
-        <input class="form-control" type="text" name="cpf" placeholder="000.000.000-00" ng-model="doador.cpf" ng-required="true" ui-br-cpf-mask="true" />
+        <input class="form-control" type="text" name="cpf" placeholder="000.000.000-00" ng-model="doador.paciente.cpf" ng-required="true" ui-br-cpf-mask="true" />
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-md-2">
         <label>Tipo Sanguíneo</label>
-        <select class="form-control" name="tipoSanguineo" ng-model="doador.tipoSanguineo" ng-options="tipoSanguineo for tipoSanguineo in tiposSanguineos" ng-required="true">
+        <select class="form-control" name="tipoSanguineo" ng-model="doador.paciente.tipoSanguineo" ng-options="tipoSanguineo for tipoSanguineo in tiposSanguineos" ng-required="true">
             <option value="">Selecione uma opção</option>
         </select>
     </div>
@@ -35,11 +35,11 @@
         <label for="exampleInputEmail1">Fator Rh</label>
         <div class="radio">
             <label>
-                <input type="radio" name="fatorRh" value="0" ng-model="doador.fatorRh" ng-required="!doador.fatorRh" ng-value="false" /> Negativo
+                <input type="radio" name="fatorRh" value="0" ng-model="doador.paciente.fatorRh" ng-required="!doador.paciente.fatorRh" ng-value="false" /> Negativo
             </label>
 
             <label>
-                <input type="radio" name="fatorRh" value="1" ng-model="doador.fatorRh" ng-required="!doador.fatorRh" ng-value="true" /> Positivo
+                <input type="radio" name="fatorRh" value="1" ng-model="doador.paciente.fatorRh" ng-required="!doador.paciente.fatorRh" ng-value="true" /> Positivo
             </label>
         </div>
     </div>

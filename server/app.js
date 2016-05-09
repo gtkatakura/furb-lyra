@@ -17,31 +17,37 @@ app.all('*', function(req, res, next) {
     next();
 });
 
+var gabriel = {
+    id: 10,
+    nomeCompleto: 'Gabriel Takashi Katakura',
+    tipoSanguineo: 'B',
+    fatorRh: true,
+    rg: '128310248',
+    cpf: '54746095663'
+};
+
+var alesson = {
+    id: 20,
+    nomeCompleto: 'Alesson Ricardo Bernardo',
+    tipoSanguineo: 'O',
+    fatorRh: false,
+    rg: '128310248',
+    cpf: '90888490640'
+};
+
+var ivan = {
+    id: 30,
+    nomeCompleto: 'Ivan Manoel da Silva Filho',
+    tipoSanguineo: 'A',
+    fatorRh: true,
+    rg: '128310248',
+    cpf: '93138168060'
+};
+
 var doadores = [
-    {
-        id: 1,
-        nomeCompleto: 'Gabriel Takashi Katakura',
-        tipoSanguineo: 'B',
-        fatorRh: true,
-        rg: '128310248',
-        cpf: '54746095663'
-    },
-    {
-        id: 2,
-        nomeCompleto: 'Alesson Ricardo Bernardo',
-        tipoSanguineo: 'O',
-        fatorRh: false,
-        rg: '128310248',
-        cpf: '90888490640'
-    },
-    {
-        id: 3,
-        nomeCompleto: 'Ivan Manoel da Silva Filho',
-        tipoSanguineo: 'A',
-        fatorRh: true,
-        rg: '128310248',
-        cpf: '93138168060'
-    }
+    { id: 1, paciente: gabriel },
+    { id: 2, paciente: alesson },
+    { id: 3, paciente: ivan }
 ];
 
 app.get('/doadores', function(req, res) {
@@ -73,31 +79,11 @@ app.delete('/doadores/:id', function(req, res) {
     res.json(true);
 });
 
+
 var receptores = [
-    {
-        id: 1,
-        nomeCompleto: 'Gabriel Takashi Katakura',
-        tipoSanguineo: 'B',
-        fatorRh: true,
-        rg: '128310248',
-        cpf: '54746095663'
-    },
-    {
-        id: 2,
-        nomeCompleto: 'Alesson Ricardo Bernardo',
-        tipoSanguineo: 'O',
-        fatorRh: false,
-        rg: '128310248',
-        cpf: '90888490640'
-    },
-    {
-        id: 3,
-        nomeCompleto: 'Ivan Manoel da Silva Filho',
-        tipoSanguineo: 'A',
-        fatorRh: true,
-        rg: '128310248',
-        cpf: '93138168060'
-    }
+    { id: 1, paciente: gabriel },
+    { id: 2, paciente: alesson },
+    { id: 3, paciente: ivan }
 ];
 
 app.get('/receptores', function(req, res) {
