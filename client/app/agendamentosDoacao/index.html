@@ -1,10 +1,10 @@
 <div id="top" class="row">
     <div class="col-sm-3">
-        <h2>Receptores</h2>
+        <h2>Agendamentos de Doação</h2>
     </div>
     <div class="col-sm-6">
         <div class="input-group h2">
-            <input class="form-control" type="text" placeholder="Pesquisar por receptores" ng-model="filtro" />
+            <input class="form-control" type="text" placeholder="Pesquisar por agendamento" ng-model="filtro" />
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="button">
                     <span class="glyphicon glyphicon-search"></span>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-sm-3">
-        <a href="#/receptores/criar" class="btn btn-primary pull-right h2">Novo Receptor</a>
+        <a href="#/agendamentosDoacao/criar" class="btn btn-primary pull-right h2">Novo Agendamento</a>
     </div>
-    <div ng-include="'app/receptor/list.html'"></div>
+    <div ng-include="'app/agendamentosDoacao/list.html'"></div>
 </div>

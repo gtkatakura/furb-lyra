@@ -1,0 +1,26 @@
+<div class="table-responsive col-md-12">
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Data Hora</th>
+                <th>Cancelado</th>
+                <th>Receptor</th>
+                <th>Doador</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="agendamentoDoacao in agendamentosDoacao | filter:filtro">
+                <td>{{agendamentoDoacao.dataHora | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{agendamentoDoacao.cancelado ? 'Sim' : 'Não'}}</td>
+                <td>{{agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
+                <td>{{agendamentoDoacao.doador.paciente.nomeCompleto}}</td>
+                <td>
+                    <button class="btn btn-warning btn-xs" ng-click="cancelar(agendamentoDoacao)" ng-if="!agendamentoDoacao.cancelado">Cancelar</button>
+                    <a class="btn btn-warning btn-xs" href="#/agendamentosDoacao/{{agendamentoDoacao.id}}/editar" ng-if="!agendamentoDoacao.cancelado">Editar</a>
+                    <button class="btn btn-danger btn-xs" ng-click="excluir(agendamentoDoacao)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

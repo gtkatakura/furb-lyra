@@ -114,3 +114,57 @@ app.delete('/receptores/:id', function(req, res) {
     receptores.splice(index, 1);
     res.json(true);
 });
+
+var agendamentosDoacao = [
+    {
+        id: 1,
+        doador: doadores[0], // Gabriel
+        hemocentro: null,
+        receptor: receptores[1], // Alesson
+        dataHora: Date.now(),
+        cancelado: false 
+    },
+    {
+        id: 1,
+        doador: doadores[1], // Alesson
+        hemocentro: null,
+        receptor: receptores[2], // Ivan
+        dataHora: Date.now(),
+        cancelado: true
+    }
+];
+
+app.get('/agendamentosDoacao', function(req, res) {
+    res.json(agendamentosDoacao);
+});
+
+app.get('/agendamentosDoacao/:id', function(req, res) {
+    var agendamentoDoacao = agendamentosDoacao.find(el => el.id == req.params.id);
+    res.json(agendamentoDoacao);
+});
+
+app.post('/agendamentosDoacao', function(req, res) {
+    var agendamentoDoacao = req.body;
+    agendamentoDoacao.id = agendamentosDoacao[agendamentosDoacao.length - 1].id + 1;
+    agendamentosDoacao.push(agendamentoDoacao);
+    res.json(true);
+});
+
+app.put('/agendamentosDoacao/:id', function(req, res) {
+    var agendamentoDoacao = req.body;
+    var agendamentoDoacaoAtual = agendamentosDoacao.find(el => el.id == agendamentoDoacao.id);
+    Object.assign(agendamentoDoacaoAtual, agendamentoDoacao);
+    res.json(true);
+});
+
+app.delete('/agendamentosDoacao/:id', function(req, res) {
+    var index = agendamentosDoacao.indexOf(req.params.id);
+    agendamentosDoacao.splice(index, 1);
+    res.json(true);
+});
+
+app.post('/agendamentosDoacao/:id/cancel', function(req, res) {
+    var agendamentoDoacao = agendamentosDoacao.find(el => el.id == req.params.id);
+    agendamentoDoacao.cancelado = true;
+    res.json(true);
+});

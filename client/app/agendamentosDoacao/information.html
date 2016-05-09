@@ -1,0 +1,64 @@
+<h3 class="page-header">Agendamento de Doação</h3>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Data</label>
+        <input class="form-control" type="text" name="data" ng-model="agendamentoDoacao.data" ng-required="true" ui-date-mask />
+    </div>
+    <div class="form-group col-md-1">
+        <label>Hora</label>
+        <input class="form-control" type="text" name="hora" ng-model="agendamentoDoacao.hora" ng-required="true" ui-time-mask="short" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Receptor</label>
+        <select class="form-control" name="receptor" ng-model="agendamentoDoacao.receptor" ng-options="receptor.paciente.nomeCompleto for receptor in receptores" ng-required="true">
+            <option value="">Selecione uma opção</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Doador</label>
+        <select class="form-control" name="doador" ng-model="agendamentoDoacao.doador" ng-options="doador.paciente.nomeCompleto for doador in doadores" ng-required="true">
+            <option value="">Selecione uma opção</option>
+        </select>
+    </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" ng-if="agendamentoDoacaoForm.$invalid && agendamentoDoacaoForm.$dirty">
+
+    <label ng-show="agendamentoDoacaoForm.data.$error.required && agendamentoDoacaoForm.data.$dirty">
+        Data é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="agendamentoDoacaoForm.data.$error.date && agendamentoDoacaoForm.data.$dirty">
+        A Data informada é inválida.
+    </label>
+    
+    <label ng-show="agendamentoDoacaoForm.hora.$error.required && agendamentoDoacaoForm.hora.$dirty">
+        Hora é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="agendamentoDoacaoForm.hora.$error.time && agendamentoDoacaoForm.hora.$dirty">
+        A Hora informada é inválida.
+    </label>
+
+    <label ng-show="agendamentoDoacaoForm.receptor.$invalid && agendamentoDoacaoForm.receptor.$dirty">
+        Receptor é uma informação obrigatória.
+    </label>
+
+    <label ng-show="agendamentoDoacaoForm.receptor.$invalid && agendamentoDoacaoForm.receptor.$dirty">
+        Receptor é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="agendamentoDoacaoForm.doador.$invalid && agendamentoDoacaoForm.doador.$dirty">
+        Doador é uma informação obrigatória.
+    </label>
+
+</div>
