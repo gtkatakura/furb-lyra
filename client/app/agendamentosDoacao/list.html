@@ -2,7 +2,8 @@
     <table class="table table-striped" cellspacing="0" cellpadding="0">
         <thead>
             <tr>
-                <th>Data Hora</th>
+                <th>Data</th>
+                <th>Hora</th>
                 <th>Cancelado</th>
                 <th>Receptor</th>
                 <th>Doador</th>
@@ -11,7 +12,8 @@
         </thead>
         <tbody>
             <tr ng-repeat="agendamentoDoacao in agendamentosDoacao | filter:filtro">
-                <td>{{agendamentoDoacao.dataHora | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{agendamentoDoacao.dataHora | date:'fullDate'}}</td>
+                <td>{{agendamentoDoacao.dataHora | date:'shortTime'}}</td>
                 <td>{{agendamentoDoacao.cancelado ? 'Sim' : 'Não'}}</td>
                 <td>{{agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
                 <td>{{agendamentoDoacao.doador.paciente.nomeCompleto}}</td>
