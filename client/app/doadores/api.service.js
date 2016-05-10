@@ -1,4 +1,4 @@
-angular.module('lyra').service('doadorApi', function(lyraApi, config) {
+angular.module('lyra').service('doadorApi', function(lyraApi) {
     this.all = function() {
         return lyraApi.get('/doadores');
     };

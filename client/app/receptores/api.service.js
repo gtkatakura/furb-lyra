@@ -1,4 +1,4 @@
-angular.module('lyra').service('receptorApi', function(lyraApi, config) {
+angular.module('lyra').service('receptorApi', function(lyraApi) {
     this.all = function() {
         return lyraApi.get('/receptores');
     };

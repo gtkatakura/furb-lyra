@@ -1,4 +1,4 @@
-angular.module('lyra').service('agendamentosDoacaoApi', function(lyraApi, config) {
+angular.module('lyra').service('agendamentosDoacaoApi', function(lyraApi) {
     this.all = function() {
         return lyraApi.get('/agendamentosDoacao');
     };
