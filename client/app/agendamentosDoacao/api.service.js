@@ -1,25 +1,25 @@
-angular.module('lyra').service('agendamentosDoacaoApi', function($http, config) {
+angular.module('lyra').service('agendamentosDoacaoApi', function(lyraApi, config) {
     this.all = function() {
-        return $http.get(config.baseUrl + '/agendamentosDoacao');
+        return lyraApi.get('/agendamentosDoacao');
     };
-    
+
     this.find = function(id) {
-        return $http.get(config.baseUrl + '/agendamentosDoacao/' + id);
+        return lyraApi.get('/agendamentosDoacao/' + id);
     }
-    
+
     this.save = function(agendamentoDoacao) {
-        return $http.post(config.baseUrl + '/agendamentosDoacao', agendamentoDoacao);
+        return lyraApi.post('/agendamentosDoacao', agendamentoDoacao);
     };
     
     this.update = function(agendamentoDoacao) {
-        return $http.put(config.baseUrl + '/agendamentosDoacao/' + agendamentoDoacao.id, agendamentoDoacao);
+        return lyraApi.put('/agendamentosDoacao/' + agendamentoDoacao.id, agendamentoDoacao);
     };
-    
+
     this.remove = function(agendamentoDoacao) {
-        return $http.delete(config.baseUrl + '/agendamentosDoacao/' + agendamentoDoacao.id);
+        return lyraApi.delete('/agendamentosDoacao/' + agendamentoDoacao.id);
     };
 
     this.cancel = function(agendamentoDoacao) {
-        return $http.post(config.baseUrl + '/agendamentosDoacao/' + agendamentoDoacao.id + '/cancel');
+        return lyraApi.post('/agendamentosDoacao/' + agendamentoDoacao.id + '/cancel');
     };
 });
