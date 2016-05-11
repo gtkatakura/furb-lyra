@@ -1,0 +1,41 @@
+<h3 class="page-header">Questionário</h3>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Título</label>
+        <input class="form-control" type="text" name="titulo" ng-model="questionario.titulo" ng-required="true" />
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Questões</div>
+    <div class="panel-body">
+        <div ng-repeat="questao in questionario.questoes">
+            <div class="form-group col-md-12">
+                <label>Descrição</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="descricao" ng-model="questao.descricao" ng-required="true" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button" ng-click="removerQuestao(questao)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" ng-click="adicionarQuestao()">Adicionar Questão</button>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" ng-if="questionarioForm.$invalid && questionarioForm.$dirty">
+
+    <label ng-show="questionarioForm.titulo.$invalid && questionarioForm.titulo.$dirty">
+        Título é uma informação obrigatória.
+    </label>
+
+</div>
+

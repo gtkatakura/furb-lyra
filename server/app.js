@@ -272,3 +272,64 @@ app.post('/agendamentosDoacao/:id/cancel', function(req, res) {
     agendamentoDoacao.cancelado = true;
     res.json(true);
 });
+
+var questionarios = [
+    {
+        id: 1,
+        titulo: 'Primeiro Questionario',
+        questoes: [
+            {
+                id: 1,
+                descricao: 'Questao 1'
+            },
+            {
+                id: 2,
+                descricao: 'Questao 2'
+            }
+        ]
+    },
+    {
+        id: 2,
+        titulo: 'Segundo Questionario',
+        questoes: [
+            {
+                id: 3,
+                descricao: 'Questao 3'
+            }
+        ]
+    },
+    {
+        id: 2,
+        titulo: 'Terceiro Questionario',
+        questoes: []
+    }
+];
+
+app.get('/questionarios', function(req, res) {
+    res.json(questionarios);
+});
+
+app.get('/questionarios/:id', function(req, res) {
+    var questionario = questionarios.find(el => el.id == req.params.id);
+    res.json(questionario);
+});
+
+app.post('/questionarios', function(req, res) {
+    var questionario = req.body;
+    questionario.id = questionarios[questionarios.length - 1].id + 1;
+    questionarios.push(questionario);
+    res.json(true);
+});
+
+app.put('/questionarios/:id', function(req, res) {
+    var questionario = req.body;
+    var questionarioAtual = questionarios.find(el => el.id == questionario.id);
+    Object.assign(questionarioAtual, questionario);
+    res.json(true);
+});
+
+app.delete('/questionarios/:id', function(req, res) {
+    var index = questionarios.indexOf(req.params.id);
+    questionarios.splice(index, 1);
+    res.json(true);
+});

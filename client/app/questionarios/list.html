@@ -1,0 +1,19 @@
+<div class="table-responsive col-md-12">
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="questionario in questionarios | filter:filtro">
+                <td>{{questionario.titulo}}</td>
+                <td>
+                    <a class="btn btn-warning btn-xs" href="#/questionarios/{{questionario.id}}/editar">Editar</a>
+                    <button class="btn btn-danger btn-xs" ng-click="excluir(questionario)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
