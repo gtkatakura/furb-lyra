@@ -1,9 +1,9 @@
 angular.module('lyra').controller('receptorListCtrl', function($scope, receptorApi) {
     $scope.receptores = [];
 
-    $scope.excluir = function(contato) {
+    $scope.excluir = function(receptor) {
         if (confirm("Você tem certeza que deseja excluir esse receptor?")) {
-            receptorApi.remove(contato).success(function() {
+            receptorApi.remove(receptor).success(function() {
                 carregarReceptores();
             });
         }

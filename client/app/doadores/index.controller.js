@@ -1,9 +1,9 @@
 angular.module('lyra').controller('doadorListCtrl', function($scope, doadorApi) {
     $scope.doadores = [];
 
-    $scope.excluir = function(contato) {
+    $scope.excluir = function(doador) {
         if (confirm("Você tem certeza que deseja excluir esse doador?")) {
-            doadorApi.remove(contato).success(function() {
+            doadorApi.remove(doador).success(function() {
                 carregarDoadores();
             });
         }
