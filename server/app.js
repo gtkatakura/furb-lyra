@@ -223,15 +223,15 @@ var agendamentosDoacao = [
     {
         id: 1,
         doador: doadores[0], // Gabriel
-        hemocentro: null,
+        hemocentro: hemocentros[0], // 'Hemosc Blumenau
         receptor: receptores[1], // Alesson
         dataHora: Date.now(),
-        cancelado: false 
+        cancelado: false,
     },
     {
         id: 1,
         doador: doadores[1], // Alesson
-        hemocentro: null,
+        hemocentro: hemocentros[1], // 'Hemosc Florianópolis'
         receptor: receptores[2], // Ivan
         dataHora: Date.now(),
         cancelado: true

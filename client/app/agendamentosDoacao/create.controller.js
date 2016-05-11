@@ -1,6 +1,7 @@
-angular.module('lyra').controller('agendamentoDoacaoCreateCtrl', function($scope, agendamentosDoacaoApi, receptorApi, doadorApi) {
+angular.module('lyra').controller('agendamentoDoacaoCreateCtrl', function($scope, agendamentosDoacaoApi, receptorApi, doadorApi, hemocentroApi) {
     $scope.receptores = [];
     $scope.doadores = [];
+    $scope.hemocentros = [];
 
     receptorApi.all().success(function(receptores) {
         $scope.receptores = receptores;
@@ -8,6 +9,10 @@ angular.module('lyra').controller('agendamentoDoacaoCreateCtrl', function($scope
 
     doadorApi.all().success(function(doadores) {
         $scope.doadores = doadores;
+    });
+
+    hemocentroApi.all().success(function(hemocentros) {
+        $scope.hemocentros = hemocentros;
     });
 
     $scope.save = function(agendamentoDoacao) {

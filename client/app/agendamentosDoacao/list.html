@@ -15,6 +15,7 @@
                 <td>{{agendamentoDoacao.dataHora | date:'fullDate'}}</td>
                 <td>{{agendamentoDoacao.dataHora | date:'shortTime'}}</td>
                 <td>{{agendamentoDoacao.cancelado ? 'Sim' : 'Não'}}</td>
+                <td>{{agendamentoDoacao.hemocentro.nome}}</td>
                 <td>{{agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
                 <td>{{agendamentoDoacao.doador.paciente.nomeCompleto}}</td>
                 <td>

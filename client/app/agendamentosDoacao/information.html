@@ -29,6 +29,15 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Hemocentro</label>
+        <select class="form-control" name="hemocentro" ng-model="agendamentoDoacao.hemocentro" ng-options="hemocentro.nome for hemocentro in hemocentros" ng-required="true">
+            <option value="">Selecione uma opção</option>
+        </select>
+    </div>
+</div>
+
 <hr />
 
 <div class="alert alert-danger" ng-if="agendamentoDoacaoForm.$invalid && agendamentoDoacaoForm.$dirty">
@@ -59,6 +68,10 @@
     
     <label ng-show="agendamentoDoacaoForm.doador.$invalid && agendamentoDoacaoForm.doador.$dirty">
         Doador é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="agendamentoDoacaoForm.hemocentro.$invalid && agendamentoDoacaoForm.hemocentro.$dirty">
+        Hemocentro é uma informação obrigatória.
     </label>
 
 </div>
