@@ -14,7 +14,7 @@
             <div class="form-group col-md-12">
                 <label>Descrição</label>
                 <div class="input-group">
-                    <input class="form-control" type="text" name="descricao" ng-model="questao.descricao" ng-required="true" />
+                    <input class="form-control" type="text" name="questoes" ng-model="questao.descricao" ng-required="true" />
                     <span class="input-group-btn">
                         <button class="btn btn-danger" type="button" ng-click="removerQuestao(questao)">
                             <span class="glyphicon glyphicon-trash"></span>
@@ -35,6 +35,10 @@
 
     <label ng-show="questionarioForm.titulo.$invalid && questionarioForm.titulo.$dirty">
         Título é uma informação obrigatória.
+    </label>
+
+    <label ng-show="questionarioForm.questoes.$invalid && questionarioForm.questoes.$dirty">
+        A Descrição das Questões é uma informação obrigatória.
     </label>
 
 </div>
