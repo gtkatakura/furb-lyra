@@ -115,6 +115,110 @@ app.delete('/receptores/:id', function(req, res) {
     res.json(true);
 });
 
+var medicos = [
+    {
+        id: 1,
+        nomeCompleto: 'Joyce Martins',
+        rg: '123456',
+        cpf: '848.874.462-50',
+        habilitacao: 1234586
+    },
+    
+    {
+        id: 2,
+        nomeCompleto: 'Matheus Carvalho Viana',
+        rg: '123456',
+        cpf: '240.877.335-05',
+        habilitacao: 9284842
+    }
+];
+
+app.get('/medicos', function(req, res) {
+    res.json(medicos);
+});
+
+app.get('/medicos/:id', function(req, res) {
+    var medico = medicos.find(el => el.id == req.params.id);
+    res.json(medico);
+});
+
+app.post('/medicos', function(req, res) {
+    var medico = req.body;
+    medico.id = medicos[medicos.length - 1].id + 1;
+    medicos.push(medico);
+    res.json(true);
+});
+
+app.put('/medicos/:id', function(req, res) {
+    var medico = req.body;
+    var medicoAtual = medicos.find(el => el.id == medico.id);
+    Object.assign(medicoAtual, medico);
+    res.json(true);
+});
+
+app.delete('/medico/:id', function(req, res) {
+    var index = medicos.indexOf(req.params.id);
+    medicos.splice(index, 1);
+    res.json(true);
+});
+
+var hemocentros = [
+    {
+        id: 1,
+        nome: 'Hemosc Blumenau',
+        descricao: 'Centro de hematologia',
+        telefone: '9999-9999',
+        rua: 'Rua Theodoro Holtrup, 40',
+        bairro: 'Vila Nova, Blumenau',
+        cidade: 'Blumenau',
+        estado: 'SC',
+        cep: '89035-300' 
+    },
+    
+    {
+        id: 2,
+        nome: 'Hemosc Florianópolis',
+        descricao: '',
+        telefone: '88015-240',
+        rua: 'Av. Prof Othon Gama DEça, 756',
+        bairro: 'Centro',
+        cidade: 'Florianópolis',
+        estado: 'SC',
+        cep: '89035-300' 
+    }
+   
+];
+
+app.get('/hemocentros', function(req, res) {
+    res.json(hemocentros);
+});
+
+app.get('/hemocentros/:id', function(req, res) {
+    var hemocentro = hemocentros.find(el => el.id == req.params.id);
+    res.json(hemocentro);
+});
+
+app.post('/hemocentros', function(req, res) {
+    var hemocentro = req.body;
+    hemocentro.id = hemocentros[hemocentros.length - 1].id + 1;
+    hemocentros.push(hemocentro);
+    res.json(true);
+});
+
+app.put('/hemocentros/:id', function(req, res) {
+    var hemocentro = req.body;
+    var hemocentroAtual = hemocentros.find(el => el.id == hemocentro.id);
+    Object.assign(hemocentroAtual, hemocentro);
+    res.json(true);
+});
+
+app.delete('/hemocentros/:id', function(req, res) {
+    var index = hemocentros.indexOf(req.params.id);
+    hemocentros.splice(index, 1);
+    res.json(true);
+});
+
+
 var agendamentosDoacao = [
     {
         id: 1,

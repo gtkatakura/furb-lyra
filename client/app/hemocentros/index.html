@@ -1,0 +1,19 @@
+<div id="top" class="row">
+    <div class="col-sm-3">
+        <h2>Hemocentros</h2>
+    </div>
+    <div class="col-sm-6">
+        <div class="input-group h2">
+            <input class="form-control" type="text" placeholder="Pesquisar por hemocentros" ng-model="filtro" />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <a href="#/hemocentros/criar" class="btn btn-primary pull-right h2">Novo Hemocentro</a>
+    </div>
+    <div ng-include="'app/hemocentros/list.html'"></div>
+</div>

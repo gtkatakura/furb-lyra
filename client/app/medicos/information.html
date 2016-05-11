@@ -1,0 +1,73 @@
+<!--TODO -->
+<h3 class="page-header">Receptor</h3>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Nome Completo</label>
+        <input class="form-control" type="text" name="nomeCompleto" ng-model="receptor.paciente.nomeCompleto" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>RG</label>
+        <input class="form-control" type="text" name="rg" ng-model="receptor.paciente.rg" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>CPF</label>
+        <input class="form-control" type="text" name="cpf" placeholder="000.000.000-00" ng-model="receptor.paciente.cpf" ng-required="true" ui-br-cpf-mask="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Tipo Sanguíneo</label>
+        <select class="form-control" name="tipoSanguineo" ng-model="receptor.paciente.tipoSanguineo" ng-options="tipoSanguineo for tipoSanguineo in tiposSanguineos" ng-required="true">
+            <option value="">Selecione uma opção</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-3">
+        <label for="exampleInputEmail1">Fator Rh</label>
+        <div class="radio">
+            <label>
+                <input type="radio" name="fatorRh" value="0" ng-model="receptor.paciente.fatorRh" ng-required="!receptor.paciente.fatorRh" ng-value="false" /> Negativo
+            </label>
+
+            <label>
+                <input type="radio" name="fatorRh" value="1" ng-model="receptor.paciente.fatorRh" ng-required="!receptor.paciente.fatorRh" ng-value="true" /> Positivo
+            </label>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" ng-if="receptorForm.$invalid && receptorForm.$dirty">
+
+    <label ng-show="receptorForm.nomeCompleto.$invalid && receptorForm.nomeCompleto.$dirty">
+        Nome Completo é uma informação obrigatória.
+    </label>
+
+    <label ng-show="receptorForm.rg.$invalid && receptorForm.rg.$dirty">
+        RG é uma informação obrigatória.
+    </label>
+
+    <label ng-show="receptorForm.cpf.$invalid && receptorForm.cpf.$dirty">
+        O CPF informado é inválido.
+    </label>
+
+    <label ng-show="receptorForm.tipoSanguineo.$invalid && receptorForm.tipoSanguineo.$dirty">
+        Tipo Sanguíneo é uma informação obrigatória.
+    </label>
+
+    <label ng-show="receptorForm.fatorRh.$invalid">
+        Fator Rh é uma informação obrigatória.
+    </label>
+
+</div>
