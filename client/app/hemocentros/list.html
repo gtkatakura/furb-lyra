@@ -1,0 +1,33 @@
+<div class="table-responsive col-md-12">
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Telefone</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>CEP</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="hemocentro in hemocentros | filter:filtro:'name'">
+                <td>{{hemocentro.nome}}</td>
+                <td>{{hemocentro.descricao}}</td>
+                <td>{{hemocentro.telefone}}</td>
+                <td>{{hemocentro.rua}}</td>
+                <td>{{hemocentro.bairro}}</td>
+                <td>{{hemocentro.cidade}}</td>
+                <td>{{hemocentro.estado}}</td>
+                <td>{{hemocentro.cep}}</td>
+                <td>
+                    <a class="btn btn-warning btn-xs" href="#/hemocentros/{{hemocentro.id}}/editar">Editar</a>
+                    <button class="btn btn-danger btn-xs" ng-click="excluir(hemocentro)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,95 @@
+<h3 class="page-header">Hemocentro</h3>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Nome</label>
+        <input class="form-control" type="text" name="nome" ng-model="hemocentro.nome" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Descrição</label>
+        <input class="form-control" type="text" name="descricao" ng-model="hemocentro.descricao" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-4">
+        <label>Telefone</label>
+        <input class="form-control" type="text" name="telefone" placeholder="(00) 00000-0000" ng-model="hemocentro.telefone" ng-required="true" ui-br-phone-number />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Rua</label>
+        <input class="form-control" type="text" name="rua" ng-model="hemocentro.rua" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Bairro</label>
+        <input class="form-control" type="text" name="bairro" ng-model="hemocentro.bairro" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Cidade</label>
+        <input class="form-control" type="text" name="cidade" ng-model="hemocentro.cidade" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>Estado</label>
+        <input class="form-control" type="text" name="estado" ng-model="hemocentro.estado" ng-required="true" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>CEP</label>
+        <input class="form-control" type="text" name="cep" ng-model="hemocentro.cep" ng-required="true" ui-br-cep-mask />
+    </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" ng-if="hemocentroForm.$invalid && hemocentroForm.$dirty">
+
+    <label ng-show="hemocentroForm.nomeCompleto.$invalid && hemocentroForm.nome.$dirty">
+        Nome é uma informação obrigatória.
+    </label>
+
+    <label ng-show="hemocentroForm.telefone.$error.required && hemocentroForm.telefone.$dirty">
+        Telefone é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="hemocentroForm.telefone.$error.brPhoneNumber && hemocentroForm.telefone.$dirty">
+        O Telefone informado é invalido.
+    </label>
+
+    <label ng-show="hemocentroForm.rua.$invalid && hemocentroForm.rua.$dirty">
+        Rua é uma informação obrigatória.
+    </label>
+
+    <label ng-show="hemocentroForm.bairro.$invalid && hemocentroForm.bairro.$dirty">
+        Bairro é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="hemocentroForm.estado.$invalid && hemocentroForm.estado.$dirty">
+        Estado é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="hemocentroForm.cep.$error.required && hemocentroForm.cep.$dirty">
+        CEP é uma informação obrigatória.
+    </label>
+
+    <label ng-show="hemocentroForm.cep.$error.cep && hemocentroForm.cep.$dirty">
+        O CEP informado é inválido.
+    </label>
+    
+</div>
