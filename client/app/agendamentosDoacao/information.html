@@ -13,8 +13,8 @@
 
 <div class="row">
     <div class="form-group col-md-4">
-        <label>Receptor</label>
-        <select class="form-control" name="receptor" ng-model="agendamentoDoacao.receptor" ng-options="receptor.paciente.nomeCompleto for receptor in receptores" ng-required="true">
+        <label>Hemocentro</label>
+        <select class="form-control" name="hemocentro" ng-model="agendamentoDoacao.hemocentro" ng-options="hemocentro.nome for hemocentro in hemocentros" ng-required="true">
             <option value="">Selecione uma opção</option>
         </select>
     </div>
@@ -31,8 +31,8 @@
 
 <div class="row">
     <div class="form-group col-md-4">
-        <label>Hemocentro</label>
-        <select class="form-control" name="hemocentro" ng-model="agendamentoDoacao.hemocentro" ng-options="hemocentro.nome for hemocentro in hemocentros" ng-required="true">
+        <label>Receptor</label>
+        <select class="form-control" name="receptor" ng-model="agendamentoDoacao.receptor" ng-options="receptor.paciente.nomeCompleto for receptor in receptores">
             <option value="">Selecione uma opção</option>
         </select>
     </div>
@@ -56,14 +56,6 @@
     
     <label ng-show="agendamentoDoacaoForm.hora.$error.time && agendamentoDoacaoForm.hora.$dirty">
         A Hora informada é inválida.
-    </label>
-
-    <label ng-show="agendamentoDoacaoForm.receptor.$invalid && agendamentoDoacaoForm.receptor.$dirty">
-        Receptor é uma informação obrigatória.
-    </label>
-
-    <label ng-show="agendamentoDoacaoForm.receptor.$invalid && agendamentoDoacaoForm.receptor.$dirty">
-        Receptor é uma informação obrigatória.
     </label>
     
     <label ng-show="agendamentoDoacaoForm.doador.$invalid && agendamentoDoacaoForm.doador.$dirty">

@@ -6,8 +6,8 @@
                 <th>Hora</th>
                 <th>Cancelado</th>
                 <th>Hemocentro</th>
-                <th>Receptor</th>
                 <th>Doador</th>
+                <th>Receptor</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -17,8 +17,8 @@
                 <td>{{agendamentoDoacao.dataHora | date:'shortTime'}}</td>
                 <td>{{agendamentoDoacao.cancelado ? 'Sim' : 'Não'}}</td>
                 <td>{{agendamentoDoacao.hemocentro.nome}}</td>
-                <td>{{agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
                 <td>{{agendamentoDoacao.doador.paciente.nomeCompleto}}</td>
+                <td>{{agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
                 <td>
                     <button class="btn btn-warning btn-xs" ng-click="cancelar(agendamentoDoacao)" ng-if="!agendamentoDoacao.cancelado">Cancelar</button>
                     <a class="btn btn-warning btn-xs" href="#/agendamentosDoacao/{{agendamentoDoacao.id}}/editar" ng-if="!agendamentoDoacao.cancelado">Editar</a>
