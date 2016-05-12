@@ -3,16 +3,19 @@
         <thead>
             <tr>
                 <th>Nome Completo</th>
-                <th>Tipo Sanguíneo</th>
-                <th>Fator Rh</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Habilitação</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="medico in medicos | filter:filtro:'name'">
-                <td>{{receptor.paciente.nomeCompleto}}</td>
-                <td>{{receptor.paciente.tipoSanguineo}}</td>
-                <td>{{receptor.paciente.fatorRh ? 'Positivo' : 'Negativo'}}</td>
+                <td>{{medico.nomeCompleto}}</td>
+                <td>{{medico.rg}}</td>
+                <td>{{medico.cpf}}</td>
+                <td>{{medico.habilitacao}}</td>
+                
                 <td>
                     <a class="btn btn-warning btn-xs" href="#/medicos/{{medico.id}}/editar">Editar</a>
                     <button class="btn btn-danger btn-xs" ng-click="excluir(medico)">Excluir</button>

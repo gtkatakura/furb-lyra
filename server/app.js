@@ -156,7 +156,7 @@ app.put('/medicos/:id', function(req, res) {
     res.json(true);
 });
 
-app.delete('/medico/:id', function(req, res) {
+app.delete('/medicos/:id', function(req, res) {
     var index = medicos.indexOf(req.params.id);
     medicos.splice(index, 1);
     res.json(true);

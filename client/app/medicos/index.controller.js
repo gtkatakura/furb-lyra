@@ -1,9 +1,9 @@
 angular.module('lyra').controller('medicoListCtrl', function($scope, medicoApi) {
-    $scope.receptores = [];
+    $scope.medicos = [];
 
-    $scope.excluir = function(contato) {
+    $scope.excluir = function(medico) {
         if (confirm("Você tem certeza que deseja excluir esse médico?")) {
-            medicoApi.remove(contato).success(function() {
+            medicoApi.remove(medico).success(function() {
                 carregarMedicos();
             });
         }
