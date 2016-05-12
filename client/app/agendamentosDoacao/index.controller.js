@@ -1,9 +1,17 @@
-angular.module('lyra').controller('agendamentoDoacaoIndexCtrl', function($scope, agendamentosDoacaoApi) {
+angular.module('lyra').controller('agendamentoDoacaoIndexCtrl', function($scope, $location, agendamentosDoacaoApi) {
     $scope.agendamentosDoacao = [];
     
-    $scope.cancelar = function(id) {
+    $scope.concluir = function(agendamentoDoacao) {
+        if (confirm("Você tem certeza que deseja concluir esse agendamento?")) {
+            $location.path('/doacoes/criar').search({
+                agendamentoId: agendamentoDoacao.id
+            });
+        }
+    };
+    
+    $scope.cancelar = function(agendamentoDoacao) {
         if (confirm("Você tem certeza que deseja cancelar esse agendamento?")) {
-            agendamentosDoacaoApi.cancel(id).success(function() {
+            agendamentosDoacaoApi.cancel(agendamentoDoacao).success(function() {
                 carregarAgendamentosDoacao();
             });
         }
