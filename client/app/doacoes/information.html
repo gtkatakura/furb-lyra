@@ -1,0 +1,82 @@
+<h3 class="page-header">Doação</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Pré-Triagem</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-md-1">
+                <label>Peso</label>
+                <input class="form-control" type="text" name="peso" ng-model="doacao.coleta.peso" ng-required="true" ui-number-mask="2" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-1">
+                <label>Altura</label>
+                <input class="form-control" type="text" name="altura" ng-model="doacao.coleta.altura" ng-required="true" ui-number-mask="2" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-1">
+                <label>Pulso</label>
+                <input class="form-control" type="text" name="pulso" ng-model="doacao.coleta.pulso" ng-required="true" ui-number-mask="0" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label>Pressão Máxima</label>
+                <input class="form-control" type="text" name="pressaoMaxima" ng-model="doacao.coleta.pressaoMaxima" ng-required="true" ui-number-mask="0" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label>Pressão Mínima</label>
+                <input class="form-control" type="text" name="pressaoMinima" ng-model="doacao.coleta.pressaoMinima" ng-required="true" ui-number-mask="0" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label>Temperatura</label>
+                <input class="form-control" type="text" name="temperatura" ng-model="doacao.coleta.temperatura" ng-required="true" ui-number-mask="1" />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-heading">Coleta</div>
+    <div class="panel-body">
+        <div class="form-group col-md-1">
+            <label>Volume</label>
+            <input class="form-control" type="text" name="volume" ng-model="doacao.coleta.volume" ng-required="true" ui-number-mask="0" />
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="alert alert-danger" ng-if="doacaoForm.$invalid && doacaoForm.$dirty">
+
+    <label ng-show="doacaoForm.peso.$invalid && doacaoForm.peso.$dirty">
+        Peso é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="doacaoForm.altura.$invalid && doacaoForm.altura.$dirty">
+        Altura é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="doacaoForm.pulso.$invalid && doacaoForm.pulso.$dirty">
+        Pulso é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="doacaoForm.pressaoMaxima.$invalid && doacaoForm.pressaoMaxima.$dirty">
+        Pressão Máxima é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="doacaoForm.pressaoMinima.$invalid && doacaoForm.pressaoMinima.$dirty">
+        Pressão Mínima é uma informação obrigatória.
+    </label>
+    
+    <label ng-show="doacaoForm.temperatura.$invalid && doacaoForm.temperatura.$dirty">
+        Temperatura é uma informação obrigatória.
+    </label>
+
+</div>
+

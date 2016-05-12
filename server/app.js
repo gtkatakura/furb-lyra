@@ -333,3 +333,67 @@ app.delete('/questionarios/:id', function(req, res) {
     questionarios.splice(index, 1);
     res.json(true);
 });
+
+var doacoes = [
+    {
+        id: 1,
+        agendamentoDoacao: agendamentosDoacao[0], // Gabriel
+        preTriagem: {
+            id: 1,
+            peso: 72,
+            altura: 1.75,
+            pulso: 107,
+            pressaoMaxima: 150,
+            pressaoMinima: 70,
+            temperatura: 37.8
+        },
+        coleta: {
+            volume: 450
+        }
+    },
+    {
+        id: 2,
+        agendamentoDoacao: agendamentosDoacao[1], // Alesson
+        preTriagem: {
+            id: 2,
+            peso: 122.5,
+            altura: 2.15,
+            pulso: 115,
+            pressaoMaxima: 170,
+            pressaoMinima: 120,
+            temperatura: 40.3
+        },
+        coleta: {
+            volume: 400
+        }
+    }
+];
+
+app.get('/doacoes', function(req, res) {
+    res.json(doacoes);
+});
+
+app.get('/doacoes/:id', function(req, res) {
+    var doacao = doacoes.find(el => el.id == req.params.id);
+    res.json(doacao);
+});
+
+app.post('/doacoes', function(req, res) {
+    var doacao = req.body;
+    doacao.id = doacoes[doacoes.length - 1].id + 1;
+    doacoes.push(doacao);
+    res.json(true);
+});
+
+app.put('/doacoes/:id', function(req, res) {
+    var doacao = req.body;
+    var doacaoAtual = doacoes.find(el => el.id == doacao.id);
+    Object.assign(doacaoAtual, doacao);
+    res.json(true);
+});
+
+app.delete('/doacoes/:id', function(req, res) {
+    var index = doacoes.indexOf(req.params.id);
+    doacoes.splice(index, 1);
+    res.json(true);
+});

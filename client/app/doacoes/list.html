@@ -1,0 +1,33 @@
+<div class="table-responsive col-md-12">
+    <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>Doador</th>
+                <th>Receptor</th>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>Pulso</th>
+                <th>Pressão</th>
+                <th>Temperatura</th>
+                <th>Volume Coletado</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="doacao in doacoes | filter:filtro">
+                <td>{{doacao.agendamentoDoacao.doador.paciente.nomeCompleto}}</td>
+                <td>{{doacao.agendamentoDoacao.receptor.paciente.nomeCompleto}}</td>
+                <td>{{doacao.preTriagem.peso | weight}}</td>
+                <td>{{doacao.preTriagem.altura | height}}</td>
+                <td>{{doacao.preTriagem.pulso | pulse}}</td>
+                <td>{{[doacao.preTriagem.pressaoMaxima, doacao.preTriagem.pressaoMinima] | pressure}}</td>
+                <td>{{doacao.preTriagem.temperatura | temperature}}</td>
+                <td>{{doacao.coleta.volume | volume}}</td>
+                <td>
+                    <a class="btn btn-warning btn-xs" href="#/doacoes/{{doacao.id}}/editar">Editar</a>
+                    <button class="btn btn-danger btn-xs" ng-click="excluir(doacao)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
