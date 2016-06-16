@@ -20,9 +20,10 @@ angular.module('lyra').controller('agendamentoDoacaoCreateCtrl', function($scope
         var hora = +horaMinute[0];
         var minuto = +horaMinute[1];
         var totalDeMinutos = hora * 60 + minuto;
-        
+
         agendamentoDoacao.dataHora = new Date(agendamentoDoacao.data.setMinutes(totalDeMinutos));
-        
+        agendamentoDoacao.cancelado = false;
+
         agendamentosDoacaoApi.save(agendamentoDoacao).success(function() {
             alert('Agendamento de Doação criada com sucesso!');
         });

@@ -8,8 +8,8 @@ const underscore = value => {
 
 const prepare = model => {
   return Object.keys(model).reduce((reduced, key) => {
-    if (typeof model[key] === 'object') {
-      reduced[`id_${key}`] = model[key].id;
+    if (typeof model[key] === 'object' && model[key] !== null) {
+      reduced[underscore(`id_${key}`)] = model[key].id;
     }
 
     reduced[underscore(key)] = model[key];
@@ -29,6 +29,10 @@ const reader = model => {
   }
 
   return Object.keys(model).reduce((reduced, key) => {
+    if (typeof model[key] === 'object') {
+      reduced[camelize(`id_${key}`)] = model[key];
+    }
+
     reduced[camelize(key)] = model[key];
     return reduced;
   }, {});

@@ -1,3 +1,3 @@
 const factory = require('./_factory');
 
-module.exports = factory('medico', ['habilitacao']);
+module.exports = factory('medico', ['nome_completo', 'habilitacao', 'rg', 'cpf']);

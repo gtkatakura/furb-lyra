@@ -38,6 +38,7 @@ CREATE TABLE Doador (
 CREATE TABLE Medico (
   id INTEGER NOT NULL AUTO_INCREMENT,
   id_usuario INTEGER NULL,
+  nome_completo VARCHAR(50) NOT NULL,
   habilitacao VARCHAR(20) NOT NULL,
   rg VARCHAR(12) NOT NULL,
   cpf CHAR(12) NOT NULL,
@@ -58,7 +59,7 @@ CREATE TABLE Hemocentro (
   cidade VARCHAR(20) NOT NULL,
   estado VARCHAR(20) NOT NULL,
   cep VARCHAR(20) NOT NULL,
-  
+
   PRIMARY KEY(id)
 );
 
@@ -66,7 +67,7 @@ CREATE TABLE AgendamentoDoacao (
   id INTEGER NOT NULL AUTO_INCREMENT,
   id_doador INTEGER NOT NULL,
   id_hemocentro INTEGER NOT NULL,
-  id_receptor INTEGER NOT NULL,
+  id_receptor INTEGER NULL,
   data_hora DATETIME NOT NULL,
   cancelado BOOLEAN,
 
@@ -81,6 +82,7 @@ CREATE TABLE PreTriagem (
   id INTEGER NOT NULL AUTO_INCREMENT,
   peso DECIMAL NOT NULL,
   altura DECIMAL NOT NULL,
+  pulso INTEGER NOT NULL,
   pressao_maxima INTEGER NOT NULL,
   pressao_minima INTEGER NOT NULL,
   temperatura DECIMAL NOT NULL,

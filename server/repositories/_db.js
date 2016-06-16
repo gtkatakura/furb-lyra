@@ -14,10 +14,14 @@ connection.config.queryFormat = function (query, values) {
 
   return query.replace(/:(\w+)/g, (txt, key) => {
     if (values.hasOwnProperty(key)) {
+      if (key.includes('data')) {
+        return this.escape(new Date(values[key]));
+      }
+
       return this.escape(values[key]);
     }
 
-    return txt;
+    return 'NULL';
   });
 };
 

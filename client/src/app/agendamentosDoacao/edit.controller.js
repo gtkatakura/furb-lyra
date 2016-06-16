@@ -1,7 +1,7 @@
 angular.module('lyra').controller('agendamentoDoacaoEditCtrl', function($scope, dateFilter, agendamentosDoacaoApi, receptorApi, doadorApi, hemocentroApi, agendamentoDoacao) {
     $scope.agendamentoDoacao = agendamentoDoacao.data;
     var dataHora = new Date($scope.agendamentoDoacao.dataHora);
-    $scope.agendamentoDoacao.data = dateFilter(dataHora, 'dd/MM/yyyy');
+    $scope.agendamentoDoacao.data = new Date(dateFilter(dataHora, 'dd/MM/yyyy'));
     $scope.agendamentoDoacao.hora = dateFilter(dataHora, 'HH:mm');
 
     $scope.receptores = [];
@@ -10,9 +10,11 @@ angular.module('lyra').controller('agendamentoDoacaoEditCtrl', function($scope, 
 
     receptorApi.all().success(function(receptores) {
         $scope.receptores = receptores;
-        $scope.agendamentoDoacao.receptor = $scope.receptores.find(function(receptor) {
-            return $scope.agendamentoDoacao.receptor.id === receptor.id;
-        });
+        if ($scope.agendamentoDoacao.receptor) {
+          $scope.agendamentoDoacao.receptor = $scope.receptores.find(function(receptor) {
+              return $scope.agendamentoDoacao.receptor.id === receptor.id;
+          });
+        }
     });
 
     doadorApi.all().success(function(doadores) {
@@ -30,6 +32,13 @@ angular.module('lyra').controller('agendamentoDoacaoEditCtrl', function($scope, 
     });
 
     $scope.update = function(agendamentoDoacao) {
+        var horaMinute = agendamentoDoacao.hora.split(':');
+        var hora = +horaMinute[0];
+        var minuto = +horaMinute[1];
+        var totalDeMinutos = hora * 60 + minuto;
+
+        agendamentoDoacao.dataHora = new Date(agendamentoDoacao.data.setMinutes(totalDeMinutos));
+
         agendamentosDoacaoApi.update(agendamentoDoacao).success(function() {
             alert("Alteração efetuada com sucesso!");
         });
