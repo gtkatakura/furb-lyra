@@ -19,12 +19,12 @@ app.all('*', (req, res, next) => {
 });
 
 fs.readdir(`${__dirname}/routes`, (err, files) => {
-  const publicFile = file => !file.startsWith('_');
+  const isPublicFile = file => !file.startsWith('_');
 
-  const reFileNameWithoutExtension = /(.*)\.[^.]+$/g;
+  const reFileNameWithoutExtension = /(.*)\.[^.]+$/;
   const getFileNameWithoutExtension = file => file.replace(reFileNameWithoutExtension, '$1');
 
-  const routesName = files.filter(publicFile).map(getFileNameWithoutExtension);
+  const routesName = files.filter(isPublicFile).map(getFileNameWithoutExtension);
 
   routesName.forEach(routeName => {
     const route = require(`./routes/${routeName}`);
