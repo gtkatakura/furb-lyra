@@ -5,17 +5,23 @@ const factory = (controllerName, repository) => ({
   find(req, res) {
     repository.find(req.params.id).then(model => res.json(model));
   },
-  create(req, res) {
+  create(req, res, next) {
     const model = req.body;
     repository.save(model)
       .then(() => res.json(true))
-      .catch(() => res.json(false));
+      .catch((err) => {
+        res.statusCode = 422;
+        next(err);
+      });
   },
-  update(req, res) {
+  update(req, res, next) {
     const model = req.body;
     repository.update(model)
       .then(() => res.json(true))
-      .catch(() => res.json(false));
+      .catch((err) => {
+        res.statusCode = 422;
+        next(err);
+      });
   },
   destroy(req, res) {
     repository.remove(req.params.id)
