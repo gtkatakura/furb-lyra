@@ -37,8 +37,8 @@ CREATE TABLE Doador (
 
 CREATE TABLE Medico (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  id_usuario INTEGER NOT NULL,
-  habilitacao INTEGER NOT NULL,
+  id_usuario INTEGER NULL,
+  habilitacao VARCHAR(40) NOT NULL,
 
   PRIMARY KEY(id),
   FOREIGN KEY(id_usuario) REFERENCES Usuario(id)
