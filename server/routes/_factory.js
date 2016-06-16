@@ -1,24 +1,26 @@
 const factory = (controllerName, repository) => ({
   index(req, res) {
-    res.json(repository.all());
+    repository.all().then(models => res.json(models));
   },
   find(req, res) {
-    const model = repository.find(req.params.id);
-    res.json(model);
+    repository.find(req.params.id).then(model => res.json(model));
   },
   create(req, res) {
     const model = req.body;
-    repository.save(model);
-    res.json(true);
+    repository.save(model)
+      .then(() => res.json(true))
+      .catch(() => res.json(false));
   },
   update(req, res) {
     const model = req.body;
-    repository.update(model);
-    res.json(true);
+    repository.update(model)
+      .then(() => res.json(true))
+      .catch(() => res.json(false));
   },
   destroy(req, res) {
-    repository.remove(req.params.id);
-    res.json(true);
+    repository.remove(req.params.id)
+      .then(() => res.json(true))
+      .catch(() => res.json(false));
   },
 });
 
