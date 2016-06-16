@@ -1,6 +1,7 @@
 # NodeJS
 node_modules
 bower_components
+client/dist
 
 # Windows image file caches
 Thumbs.db
