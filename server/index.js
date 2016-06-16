@@ -30,6 +30,7 @@ fs.readdir(`${__dirname}/routes`, (err, files) => {
     const route = require(`./routes/${routeName}`);
 
     app.get(`/${routeName}`, route.index);
+    app.get(`/${routeName}/count`, route.count);
     app.get(`/${routeName}/:id`, route.find);
     app.post(`/${routeName}`, route.create);
     app.put(`/${routeName}/:id`, route.update);

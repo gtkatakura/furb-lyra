@@ -37,4 +37,7 @@ module.exports = {
         return repository.remove(id).then(() => pacienteRepository.remove(receptor.idPaciente));
       });
   },
+  count() {
+    return repository.count();
+  },
 };
