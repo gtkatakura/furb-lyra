@@ -38,7 +38,9 @@ CREATE TABLE Doador (
 CREATE TABLE Medico (
   id INTEGER NOT NULL AUTO_INCREMENT,
   id_usuario INTEGER NULL,
-  habilitacao VARCHAR(40) NOT NULL,
+  habilitacao VARCHAR(20) NOT NULL,
+  rg VARCHAR(12) NOT NULL,
+  cpf CHAR(12) NOT NULL,
 
   PRIMARY KEY(id),
   FOREIGN KEY(id_usuario) REFERENCES Usuario(id)
@@ -48,7 +50,15 @@ CREATE TABLE Hemocentro (
   id INTEGER NOT NULL AUTO_INCREMENT,
   nome VARCHAR(50) NOT NULL,
   ativo BOOLEAN,
-
+  descricao VARCHAR(60) NOT NULL,
+  -- TODO tabela endereço
+  telefone VARCHAR(20) NOT NULL,
+  rua VARCHAR(40) NOT NULL,
+  bairro VARCHAR(30) NOT NULL,
+  cidade VARCHAR(20) NOT NULL,
+  estado VARCHAR(20) NOT NULL,
+  cep VARCHAR(20) NOT NULL,
+  
   PRIMARY KEY(id)
 );
 
