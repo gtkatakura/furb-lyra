@@ -1,4 +1,4 @@
 const factory = require('./_factory');
-// const repository = require('../repositories/receptor');
+const repository = require('../repositories/receptor');
 
-module.exports = factory('receptores', null);
+module.exports = factory('receptores', repository);

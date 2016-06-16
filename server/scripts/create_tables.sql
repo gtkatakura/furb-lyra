@@ -1,7 +1,7 @@
 CREATE TABLE Paciente (
   id INTEGER NOT NULL AUTO_INCREMENT,
   nome_completo VARCHAR(50) NOT NULL,
-  tipo_sanguineo INTEGER NOT NULL,
+  tipo_sanguineo CHAR(1) NOT NULL,
   fator_rh BOOLEAN NOT NULL,
   rg VARCHAR(12) NOT NULL,
   cpf CHAR(12) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Doador (
   id INTEGER NOT NULL AUTO_INCREMENT,
   id_paciente INTEGER NOT NULL,
-  id_usuario INTEGER NOT NULL,
+  id_usuario INTEGER NULL,
 
   PRIMARY KEY(id),
   FOREIGN KEY(id_usuario) REFERENCES Usuario(id),
