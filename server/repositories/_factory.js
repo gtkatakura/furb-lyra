@@ -60,11 +60,23 @@ const factory = (tableName, fields) => {
     update(model) {
       return db.execute(`UPDATE ${tableName} SET ${updateList} WHERE id = :id`, prepare(model));
     },
-    remove(id) {
-      return db.execute(`DELETE FROM ${tableName} WHERE id = :id`, { id });
+    remove(filter) {
+      if (typeof filter !== 'object' || filter === null) {
+        filter = { id: filter };
+      }
+
+      filter = prepare(filter);
+      const whereList = Object.keys(filter).map(field => `${field} = :${field}`).join(' AND ');
+
+      return db.execute(`DELETE FROM ${tableName} WHERE ${whereList}`, filter);
     },
     count() {
       return db.execute(`SELECT COUNT(1) AS count FROM ${tableName}`).then(rows => rows[0].count);
+    },
+    where(filter) {
+      filter = prepare(filter);
+      const whereList = Object.keys(filter).map(field => `${field} = :${field}`).join(' AND ');
+      return db.execute(`SELECT * FROM ${tableName} WHERE ${whereList}`, filter).then(rows => reader(rows));
     },
   };
 };

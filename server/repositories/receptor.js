@@ -32,10 +32,7 @@ module.exports = {
     return pacienteRepository.update(receptor.paciente);
   },
   remove(id) {
-    return repository.find(id)
-      .then(receptor => {
-        return repository.remove(id).then(() => pacienteRepository.remove(receptor.idPaciente));
-      });
+    return repository.remove(id);
   },
   count() {
     return repository.count();

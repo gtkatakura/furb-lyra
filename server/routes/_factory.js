@@ -32,6 +32,7 @@ const factory = (controllerName, repository) => ({
     if (!repository.count) {
       return 0;
     }
+
     repository.count().then(length => res.json(length));
   },
 });
