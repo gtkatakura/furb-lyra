@@ -37,3 +37,7 @@ fs.readdir(`${__dirname}/routes`, (err, files) => {
     app.delete(`/${routeName}/:id`, route.destroy);
   });
 });
+
+const agendamentoDoacaoRoute = require('./routes/agendamentosDoacao');
+
+app.post('/agendamentosDoacao/:id/cancel', agendamentoDoacaoRoute.cancel);
