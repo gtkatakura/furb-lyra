@@ -59,6 +59,9 @@ const factory = (tableName, fields) => {
     remove(id) {
       return db.execute(`DELETE FROM ${tableName} WHERE id = :id`, { id });
     },
+    count() {
+      return db.execute(`SELECT COUNT(1) AS count FROM ${tableName}`).then(rows => rows[0].count);
+    },
   };
 };
 

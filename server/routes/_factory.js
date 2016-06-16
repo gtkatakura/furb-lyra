@@ -28,6 +28,12 @@ const factory = (controllerName, repository) => ({
       .then(() => res.json(true))
       .catch(() => res.json(false));
   },
+  count(req, res) {
+    if (!repository.count) {
+      return 0;
+    }
+    repository.count().then(length => res.json(length));
+  },
 });
 
 module.exports = factory;
